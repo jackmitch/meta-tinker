@@ -2,12 +2,11 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
 SRC_URI += " \
 	file://fix-linking.patch \
-	file://0001-rockchip-use-spl_early_init-instead-of-spl_init.patch \
-	file://0001-spl-add-spl_early_init.patch \
-	file://fix-mmc.patch \
 "
 
-SRCREV = "${AUTOREV}"
+SRCREV = "5cf618ee60a752d058a767372ca1ecb8d9c09b16"
+
+DEPENDS += " bc-native"
 
 do_compile_append() {
 
