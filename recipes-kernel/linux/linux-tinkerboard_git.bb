@@ -7,7 +7,7 @@ inherit kernel siteinfo
 
 S = "${WORKDIR}/git"
 
-KBRANCH_tinkerboard = "v4.12-armsoc/dts32"
+KBRANCH_tinker = "v4.12-armsoc/dts32"
 
 LINUX_VERSION ?= "4.9"
 
