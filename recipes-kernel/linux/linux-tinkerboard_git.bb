@@ -20,7 +20,7 @@ SRC_URI = " \
 	git://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git;name=kernel;branch=${KBRANCH} \
 "
 
-COMPATIBLE_MACHINE = "tinkerboard"
+COMPATIBLE_MACHINE = "tinker"
 
 do_configure_prepend() {
 	cp ${S}/arch/arm/configs/multi_v7_defconfig ${B}/.config
