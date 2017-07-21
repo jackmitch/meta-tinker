@@ -7,23 +7,24 @@ inherit kernel siteinfo
 
 S = "${WORKDIR}/git"
 
-KBRANCH_tinker = "v4.12-armsoc/dts32"
+KBRANCH_tinkerboard = "linux-4.12.y"
 
-LINUX_VERSION ?= "4.9"
+LINUX_VERSION ?= "4.12.2"
 
 PV = "${LINUX_VERSION}+git${SRCPV}"
 
-SRCREV = "${AUTOREV}"
+SRCREV = "ab35d16f66d63b625396edfba013dd258e13f560"
 SRCREV_FORMAT = "kernel"
 
 SRC_URI = " \
-	git://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git;name=kernel;branch=${KBRANCH} \
+	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git;name=kernel;branch=${KBRANCH} \
 "
 
 COMPATIBLE_MACHINE = "tinker"
 
 do_configure_prepend() {
 	cp ${S}/arch/arm/configs/multi_v7_defconfig ${B}/.config
+	echo "CONFIG_GPIO_SYSFS=y" >> ${B}/.config
 }
 
 do_install_append() {
